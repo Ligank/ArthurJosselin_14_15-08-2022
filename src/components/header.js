@@ -12,8 +12,7 @@ function Header() {
                 <nav className='navigation'>
                     <Link to="/currentEmployees" className='linkCurrent'>View Current Employees</Link>
                 </nav>
-           </div>
-                           
+           </div>       
 }
 
 export default Header
