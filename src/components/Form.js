@@ -1,5 +1,6 @@
 import {states} from '../data/states'
 import DropdownMenu from '../components/DropdownMenu'
+//import Modal from 'plugin-modal-ligank'
 import '../styles/form.css';
 
 function Form() {
@@ -41,10 +42,10 @@ function Form() {
                     <div className='inputBoxAdress'>
                         <label htmlFor="state">State</label>
                         <select name="state" id="state">
-                        {states.map((state) => (
+                        {states.sort((a, b) => a.name.localeCompare(b.name)).map((state) => (
                             <DropdownMenu 
                                 key={`${state.name}`}
-                                state={state.name}>
+                                option={state.name}>
                             </DropdownMenu>
                             ))}
                         </select>
@@ -68,7 +69,7 @@ function Form() {
 
             <button className='buttonSave' onClick={saveEmployee}>Save</button>
             </div>
-            <div id="confirmation" className="modal">Employee Created!</div>
+            {/*<div id="confirmation" className="modal">Employee Created!</div>*/}
         </div>
                            
 }

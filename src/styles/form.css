@@ -67,6 +67,9 @@ label {
 
 #state {
     width: 80%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-color: grey;
 }
 
 .buttonSave {
@@ -85,10 +88,4 @@ label {
 .buttonSave:hover {
 	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
 	background-color:#f6f6f6;
-}
-
-#state {
-    background-color: whitesmoke;
-    border-radius: 5px;
-    border-color: grey;
 }

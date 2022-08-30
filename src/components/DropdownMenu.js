@@ -1,8 +1,8 @@
 import '../styles/DropdownMenu.css';
 
-function DropdownMenu({state}) {
+function DropdownMenu({option}) {
 
-    return <option className='option'>{state}</option>
+    return <option className='option'>{option}</option>
 }
 
 export default DropdownMenu
