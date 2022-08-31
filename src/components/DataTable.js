@@ -1,7 +1,28 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSort } from '@fortawesome/free-solid-svg-icons'
+import { faSortDown } from '@fortawesome/free-solid-svg-icons'
+import { faSortUp } from '@fortawesome/free-solid-svg-icons'
 import DropdownMenu from '../components/DropdownMenu'
+import React, { useState } from "react";
 import '../styles/DataTable.css';
 
 function DataTable({name1, name2, name3, name4, name5, name6, name7, name8, name9, data}) {
+
+    const [icon, setIcon] = useState(faSort);
+   
+    const [nameClass, setClass] = useState('sortDouble');
+
+    function setNextIcon() {
+        if ((icon) === faSort) {
+            setIcon(faSortUp)
+            setClass('sortSimple')
+        } else if (icon === faSortUp) {
+            setIcon(faSortDown)
+        } else if (icon === faSortDown) {
+            setIcon(faSort)
+            setClass('sortDouble')
+        }
+    }
 
     return <div className='dataTableBox'>
         <div className='numberSearch'>
@@ -25,15 +46,15 @@ function DataTable({name1, name2, name3, name4, name5, name6, name7, name8, name
         <table className='table'>
                 <thead>
                     <tr>
-                        <th>{name1}<div className='arrowsBox'><i className=" arrow arrow-up"></i><i className="arrow arrow-down"></i></div></th>
-                        <th>{name2}<i className=" arrow arrow-up"></i><i className="arrow arrow-down"></i></th>
-                        <th>{name3}</th>
-                        <th>{name4}</th>
-                        <th>{name5}</th>
-                        <th>{name6}</th>
-                        <th>{name7}</th>
-                        <th>{name8}</th>
-                        <th>{name9}</th>
+                        <th onClick={setNextIcon}>{name1} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
+                        <th onClick={setNextIcon}>{name2} <FontAwesomeIcon icon={icon} className={nameClass} /></th>
+                        <th onClick={setNextIcon}>{name3} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
+                        <th onClick={setNextIcon}>{name4} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
+                        <th onClick={setNextIcon}>{name5} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
+                        <th onClick={setNextIcon}>{name6} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
+                        <th onClick={setNextIcon}>{name7} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
+                        <th onClick={setNextIcon}>{name8} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
+                        <th onClick={setNextIcon}>{name9} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
                     </tr>
                 </thead>
                 {data.map((user) => (

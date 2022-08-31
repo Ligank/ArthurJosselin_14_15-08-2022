@@ -86,3 +86,16 @@ td {
 tbody:nth-child(odd){
     background-color: gainsboro;
 }
+
+.sortDouble {
+    color: gainsboro;
+}
+
+.sortSimple {
+    color: blue;
+}
+
+th { 
+    cursor: pointer;
+    user-select: none;
+}
