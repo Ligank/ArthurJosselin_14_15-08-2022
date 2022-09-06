@@ -1,6 +1,7 @@
 import {states} from '../data/states'
+import {departments} from '../data/departments'
 import DropdownMenu from '../components/DropdownMenu'
-//import Modal from 'plugin-modal-ligank'
+import {Modal} from "plugin-modal-ligank"
 import '../styles/form.css';
 
 function Form() {
@@ -23,11 +24,11 @@ function Form() {
                 </div>
                 <div className='inputBox'>
                     <label htmlFor="date-of-birth">Date of Birth</label>
-                    <input id="date-of-birth" type="text" className='inputText'/>
+                    <input id="date-of-birth" type="text" ></input>
                 </div>
                 <div className='inputBox'>
                     <label htmlFor="start-date">Start Date</label>
-                    <input id="start-date" type="text" className='inputText'/>
+                    <input id="start-date" type="text" ></input>
                 </div>
                 <fieldset className='address'>
                     <legend>Address</legend>
@@ -58,18 +59,17 @@ function Form() {
                 <div className='inputBox'>
                     <label htmlFor="department">Department</label>
                     <select name="department" id="department">
-                        <option>Sales</option>
-                        <option>Marketing</option>
-                        <option>Engineering</option>
-                        <option>Human Resources</option>
-                        <option>Legal</option>
+                    {departments.sort((a, b) => a.name.localeCompare(b.name)).map((department) => (
+                            <DropdownMenu 
+                                key={`${department.name}`}
+                                option={department.name}>
+                            </DropdownMenu>
+                            ))}
                     </select>
                 </div>
             </form>
-
-            <button className='buttonSave' onClick={saveEmployee}>Save</button>
+            <Modal buttonText={'Save'} modalText="Employee Created !" onClick={saveEmployee}></Modal>                   
             </div>
-            {/*<div id="confirmation" className="modal">Employee Created!</div>*/}
         </div>
                            
 }

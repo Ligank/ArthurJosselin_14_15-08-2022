@@ -47,7 +47,7 @@ function DataTable({name1, name2, name3, name4, name5, name6, name7, name8, name
                 <thead>
                     <tr>
                         <th onClick={setNextIcon}>{name1} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
-                        <th onClick={setNextIcon}>{name2} <FontAwesomeIcon icon={icon} className={nameClass} /></th>
+                        <th onClick={setNextIcon}>{name2} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
                         <th onClick={setNextIcon}>{name3} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
                         <th onClick={setNextIcon}>{name4} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
                         <th onClick={setNextIcon}>{name5} <FontAwesomeIcon icon={icon} className={nameClass}/></th>
@@ -58,7 +58,7 @@ function DataTable({name1, name2, name3, name4, name5, name6, name7, name8, name
                     </tr>
                 </thead>
                 {data.map((user) => (
-                    <tbody key={user.firstName}>
+                    <tbody key={Object.values(user)[0]}>
                         <tr align="center">
                             <td>{Object.values(user)[0]}</td>
                             <td>{Object.values(user)[1]}</td>
