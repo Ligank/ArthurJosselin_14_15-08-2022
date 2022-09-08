@@ -1,14 +1,23 @@
+import React, { useState, useEffect } from "react";
 import {states} from '../data/states'
 import {departments} from '../data/departments'
-import DropdownMenu from '../components/DropdownMenu'
+import DropdownMenu from './DropdownMenu'
 import {Modal} from "plugin-modal-ligank"
+import DatePicker from "./DatePicker";
 import '../styles/form.css';
 
 function Form() {
 
-    function saveEmployee() {
-        console.log(states[0].name)
-    }
+    const [isShown, setIsShown] = useState(false);
+
+    useEffect(()=>{
+        setIsShown(false)
+      }, [isShown]) 
+    
+      function handleClick() {
+        
+          setIsShown(true)
+      }
 
     return <div className='form'>
         <div className="container">
@@ -24,11 +33,13 @@ function Form() {
                 </div>
                 <div className='inputBox'>
                     <label htmlFor="date-of-birth">Date of Birth</label>
-                    <input id="date-of-birth" type="text" ></input>
+                    <DatePicker/>
+                    {/*<input id="date-of-birth" type="text" ></input>*/}
                 </div>
                 <div className='inputBox'>
                     <label htmlFor="start-date">Start Date</label>
-                    <input id="start-date" type="text" ></input>
+                    <DatePicker/>
+                    {/*<input id="start-date" type="text" ></input>*/}
                 </div>
                 <fieldset className='address'>
                     <legend>Address</legend>
@@ -42,14 +53,7 @@ function Form() {
                     </div>
                     <div className='inputBoxAdress'>
                         <label htmlFor="state">State</label>
-                        <select name="state" id="state">
-                        {states.sort((a, b) => a.name.localeCompare(b.name)).map((state) => (
-                            <DropdownMenu 
-                                key={`${state.name}`}
-                                option={state.name}>
-                            </DropdownMenu>
-                            ))}
-                        </select>
+                        <DropdownMenu data={states} name='state' id='state'/>
                     </div>
                     <div className='inputBoxAdress'>
                         <label htmlFor="zip-code">Zip Code</label>
@@ -58,17 +62,11 @@ function Form() {
                 </fieldset>
                 <div className='inputBox'>
                     <label htmlFor="department">Department</label>
-                    <select name="department" id="department">
-                    {departments.sort((a, b) => a.name.localeCompare(b.name)).map((department) => (
-                            <DropdownMenu 
-                                key={`${department.name}`}
-                                option={department.name}>
-                            </DropdownMenu>
-                            ))}
-                    </select>
+                    <DropdownMenu data={departments} name='department' id='department'/>
                 </div>
             </form>
-            <Modal buttonText={'Save'} modalText="Employee Created !" onClick={saveEmployee}></Modal>                   
+            <button onClick={handleClick}>Confirm</button>
+            <Modal modalText="Employee Created !" show={isShown}></Modal>                   
             </div>
         </div>
                            
