@@ -4,8 +4,8 @@ export const users = [
         "lastName": "Doe",
         "startDate": "07/10/2020",
         "department": "Engineering",
-        "birth": "07/07/1990",
-        "street": "republic",
+        "birth": "1990/07/07",
+        "street": "20 street republic",
         "city": "New York",
         "state": "NY",
         "zipCode": "10001"
@@ -15,8 +15,8 @@ export const users = [
         "lastName": "Doe",
         "startDate": "07/10/2020",
         "department": "Engineering",
-        "birth": "07/07/1990",
-        "street": "republic",
+        "birth": "1990/07/07",
+        "street": "20 street republic",
         "city": "New York",
         "state": "NY",
         "zipCode": "10001"
@@ -26,8 +26,8 @@ export const users = [
         "lastName": "Doe",
         "startDate": "07/10/2020",
         "department": "Engineering",
-        "birth": "07/07/1990",
-        "street": "republic",
+        "birth": "1990/07/07",
+        "street": "20 street republic",
         "city": "New York",
         "state": "NY",
         "zipCode": "10001"

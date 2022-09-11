@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSort } from '@fortawesome/free-solid-svg-icons'
 import { faSortDown } from '@fortawesome/free-solid-svg-icons'
 import { faSortUp } from '@fortawesome/free-solid-svg-icons'
-import DropdownMenu from '../components/DropdownMenu'
 import React, { useState } from "react";
 import '../styles/DataTable.css';
 
@@ -29,12 +28,12 @@ function DataTable({name1, name2, name3, name4, name5, name6, name7, name8, name
             <div className='numberPages'>
                 <p className='dataTableText'>Show</p>
                 <select>
-                {[10,20,30,40,50].map((page) => (
-                                <DropdownMenu 
-                                    key={`${page}`}
-                                    option={page}>
-                                </DropdownMenu>
-                                ))}
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <option>40</option>
+                    <option>50</option>
+                    <option>60</option>
                 </select>
                 <p className='dataTableText'>Entries</p>
             </div>
@@ -58,7 +57,7 @@ function DataTable({name1, name2, name3, name4, name5, name6, name7, name8, name
                     </tr>
                 </thead>
                 {data.map((user) => (
-                    <tbody key={Object.values(user)[0]}>
+                    <tbody key={Object.values(user)[0] + Object.values(user)[2] }>
                         <tr align="center">
                             <td>{Object.values(user)[0]}</td>
                             <td>{Object.values(user)[1]}</td>

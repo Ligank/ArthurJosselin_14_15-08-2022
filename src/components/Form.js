@@ -3,11 +3,16 @@ import {states} from '../data/states'
 import {departments} from '../data/departments'
 import DropdownMenu from './DropdownMenu'
 import {Modal} from "plugin-modal-ligank"
+import { useDispatch } from "react-redux"
+import { useNavigate } from 'react-router-dom';
 import DatePicker from "./DatePicker";
+import { createUser, clearState} from "../redux/UserSlice"
 import '../styles/form.css';
 
 function Form() {
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [isShown, setIsShown] = useState(false);
 
     useEffect(()=>{
@@ -15,8 +20,13 @@ function Form() {
       }, [isShown]) 
     
       function handleClick() {
-        
-          setIsShown(true)
+        if (document.querySelector("#first-name").value !== '' && document.querySelector("#last-name").value !== '' && document.querySelector("#street").value !== '' && document.querySelector("#city").value !== '' && document.querySelector("#zip-code").value !== '' && document.querySelectorAll('#inputDate')[0].value !== '' && document.querySelectorAll('#inputDate')[1].value !== '') {
+            dispatch(createUser())
+            setIsShown(true)
+        } else {
+            dispatch(clearState())
+            alert('Not all fields are filled in')
+        }
       }
 
     return <div className='form'>
@@ -34,12 +44,10 @@ function Form() {
                 <div className='inputBox'>
                     <label htmlFor="date-of-birth">Date of Birth</label>
                     <DatePicker/>
-                    {/*<input id="date-of-birth" type="text" ></input>*/}
                 </div>
                 <div className='inputBox'>
                     <label htmlFor="start-date">Start Date</label>
                     <DatePicker/>
-                    {/*<input id="start-date" type="text" ></input>*/}
                 </div>
                 <fieldset className='address'>
                     <legend>Address</legend>
@@ -66,7 +74,7 @@ function Form() {
                 </div>
             </form>
             <button onClick={handleClick}>Confirm</button>
-            <Modal modalText="Employee Created !" show={isShown}></Modal>                   
+            <Modal modalText="Employee Created !" show={isShown} closeAction={() => navigate("/currentEmployees")}></Modal>                   
             </div>
         </div>
                            

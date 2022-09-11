@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import './styles/index.css';
 import CreateEmployee from './pages/CreateEmployee';
 import EmployeeList from './pages/EmployeeList';
+import { Provider } from "react-redux";
+import history from './redux/history'
+import configureStore from "./redux/configureStore";
+import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Router>
+  <Provider store={configureStore}>
+    <Router history={history}>
       <Routes>
         <Route exact path="/" element={<CreateEmployee />}></Route>
 
@@ -17,5 +21,6 @@ root.render(
 
       </Routes>
     </Router>
+    </Provider>
   
 );

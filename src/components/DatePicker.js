@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import '../styles/DatePicker.css';
 
 function DatePicker() {
 
     let oneDay = 60 * 60 * 24 * 1000;
     let todayTimestamp = Date.now() - (Date.now() % oneDay) + (new Date().getTimezoneOffset() * 1000 * 60);
-    let inputRef = React.createRef();
+    let inputRef = useRef(null);
     let date = new Date();
 
     const [showDatePicker, showingDatePicker] = useState(false);
@@ -15,18 +15,19 @@ function DatePicker() {
     
 
     useEffect(() => {
-        window.addEventListener("click", function (event) {  
-            let ignore = document.getElementById('inputDate');
+        window.addEventListener("click", function (event) {
+            let ignore = inputRef.current;
             let ignore2 = document.getElementById('dateContainer');
             let target = event.target;
             if (ignore2 !== null) {
             if (target === ignore || ignore2.contains(target)) {
                 return;
-            }else if(showDatePicker === true) {
+            }else if(showDatePicker === true && target !== ignore) {
                 showingDatePicker(false);
             }}
+            
         });
-      }, [showDatePicker]);
+      }, [showDatePicker, inputRef]);
 
     let daysMap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let monthMap = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -166,7 +167,6 @@ function DatePicker() {
 
     function test() {
         showingDatePicker(true)
-        console.log(showDatePicker)
     }
 
 
