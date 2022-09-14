@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import DataTable from '../components/DataTable.js'
+import React, { useEffect } from "react";
 import {users} from '../data/user'
 import {states} from '../data/states'
 import { useSelector } from "react-redux"
@@ -15,34 +16,34 @@ function EmployeeList() {
   let name = state
   let findState = !name ? states : states.filter(state => state.name === name)
 
-  let user = {
-    firstName: firstName,
-    lastName: lastName,
-    startDate: startDate.replace(/-/g, "/"),
-    department: department,
-    birth: birth.replace(/-/g, "/"),
-    street: street,
-    city: city,
-    state: findState[0].abbreviation,
-    zipCode: zipCode
-  }
-
-  users.forEach(element => {
-    if (element.firstName === user.firstName && element.lastName === user.lastName && element.birth === user.birth && element.startDate === user.startDate) {
-      dispatch(clearState())
-      user = {
-        firstName: '',
-      }
+  useEffect(() => {
+    let user = {
+      firstName: firstName,
+      lastName: lastName,
+      startDate: startDate.replace(/-/g, "/"),
+      department: department,
+      birth: birth.replace(/-/g, "/"),
+      street: street,
+      city: city,
+      state: findState[0].abbreviation,
+      zipCode: zipCode
     }
-  })
-
-  if (user.firstName !== '') {
-    let data = users
-    data.push(user)
-    dispatch(clearState())
-  } else {
-    dispatch(clearState())
-  }
+    users.forEach(element => {
+      if (element.firstName === user.firstName && element.lastName === user.lastName && element.birth === user.birth && element.startDate === user.startDate) {
+        dispatch(clearState())
+        user = {
+          firstName: '',
+        }
+      }
+    })
+    if (user.firstName !== '') {
+      let data = users
+      data.push(user)
+      dispatch(clearState())
+    } else {
+      dispatch(clearState())
+    }
+  }, [birth, city, department, dispatch, findState, firstName, lastName, startDate, street, zipCode])
 
     return (
       <div className="CurrentEmployees">
