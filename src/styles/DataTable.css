@@ -7,6 +7,13 @@
     justify-content: space-between;
 }
 
+.containerList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .numberPages, .searchBox {
     display: flex;
     align-items: center;

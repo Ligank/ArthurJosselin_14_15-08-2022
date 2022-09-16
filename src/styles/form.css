@@ -1,6 +1,6 @@
 .form {
     background: radial-gradient(circle, rgba(184,217,31,1) 0%, rgba(21,135,36,1) 100%);
-    height: 82vh;
+    height: 75vh;
     width: 100vw;
     margin: 0 auto 20px auto;
 }
@@ -10,13 +10,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 95%;
+    height: 70vh;
+    margin-top: 30px;
 }
 
 label {
     display: block;
     margin-top: 1rem;
     margin-bottom: 10px;
+    
 }
 
 .address {

@@ -43,11 +43,11 @@ function Form() {
                 </div>
                 <div className='inputBox'>
                     <label htmlFor="date-of-birth">Date of Birth</label>
-                    <DatePicker/>
+                    <DatePicker id='date-of-birth'/>
                 </div>
                 <div className='inputBox'>
                     <label htmlFor="start-date">Start Date</label>
-                    <DatePicker/>
+                    <DatePicker id='start-date'/>
                 </div>
                 <fieldset className='address'>
                     <legend>Address</legend>

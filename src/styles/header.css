@@ -2,23 +2,18 @@
 .header {
     height: 15vh;
     display: flex;
-    justify-content: space-between;
-}
-
-.logo-image {
-    max-height: 100%;
+    flex-direction: column;
 }
 
 .titleH1 {
     align-self: center;
-    margin-left: 25px;
     font-size: 3rem;
     color: #343a40;
 }
 
 .navigation {
     align-self: center;
-    margin-right: 25px;
+    margin-bottom: 20px;
 }
 
 .linkCurrent {

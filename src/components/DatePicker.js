@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import '../styles/DatePicker.css';
 
-function DatePicker() {
+function DatePicker({id}) {
 
     let oneDay = 60 * 60 * 24 * 1000;
     let todayTimestamp = Date.now() - (Date.now() % oneDay) + (new Date().getTimezoneOffset() * 1000 * 60);
@@ -198,7 +198,7 @@ function DatePicker() {
 
     return <div className='DatePicker'>
         <div className='mdp-input'  onClick={test}>
-                    <input type='date' id="inputDate" onChange={updateDateFromInput} ref={inputRef}/>
+                    <input type='date' id={id} onChange={updateDateFromInput} ref={inputRef}/>
                 </div>
                 {showDatePicker && <div className='mdp-container' id="dateContainer">
                         <div className='mdpc-head'>
