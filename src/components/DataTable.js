@@ -19,7 +19,7 @@ function DataTable({name1, name2, name3, name4, name5, name6, name7, name8, name
     const [icon9, setIcon9] = useState(faSort);
     const [dataSort, setData] = useState(data);
     
-    /**With the postionand the name, it will sort the table ascending or descending
+    /**With the postion and the name, it will sort the table ascending or descending
      * @param {number} position get the correct state
      * @param {string} name get the name of the property sorted
      */
