@@ -29,8 +29,8 @@ import { createSlice } from "@reduxjs/toolkit"
         createUser: (state) => {     
           state.firstName = document.querySelector("#first-name").value;
           state.lastName = document.querySelector("#last-name").value;
-          state.birth = document.querySelectorAll("#inputDate")[0].value;
-          state.startDate = document.querySelectorAll("#inputDate")[1].value;
+          state.birth = document.querySelector("#date-of-birth").value;
+          state.startDate = document.querySelector("#start-date").value;
           state.street = document.querySelector("#street").value;
           state.city = document.querySelector("#city").value;
           state.state = document.querySelector("#state").value;

@@ -20,7 +20,7 @@ function Form() {
       }, [isShown]) 
     
       function handleClick() {
-        if (document.querySelector("#first-name").value !== '' && document.querySelector("#last-name").value !== '' && document.querySelector("#street").value !== '' && document.querySelector("#city").value !== '' && document.querySelector("#zip-code").value !== '' && document.querySelectorAll('#inputDate')[0].value !== '' && document.querySelectorAll('#inputDate')[1].value !== '') {
+        if (document.querySelector("#first-name").value !== '' && document.querySelector("#last-name").value !== '' && document.querySelector("#street").value !== '' && document.querySelector("#city").value !== '' && document.querySelector("#zip-code").value !== '' && document.querySelectorAll('#state').value !== '' && document.querySelectorAll('#department').value !== '') {
             dispatch(createUser())
             setIsShown(true)
         } else {
@@ -69,7 +69,7 @@ function Form() {
                     </div>
                 </fieldset>
                 <div className='inputBox'>
-                    <label htmlFor="department">Department</label>
+                    <label htmlFor="departments">Department</label>
                     <DropdownMenu data={departments} name='department' id='department'/>
                 </div>
             </form>
