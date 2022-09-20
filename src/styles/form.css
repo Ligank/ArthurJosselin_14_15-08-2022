@@ -2,23 +2,23 @@
     background: radial-gradient(circle, rgba(184,217,31,1) 0%, rgba(21,135,36,1) 100%);
     height: 75vh;
     width: 100vw;
-    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: space-around;
 }
 
 .container {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70vh;
-    margin-top: 30px;
 }
 
 label {
     display: block;
     margin-top: 1rem;
     margin-bottom: 10px;
-    
+    user-select: none;
 }
 
 .address {
@@ -27,7 +27,7 @@ label {
 }
 
 #create-employee {
-    margin-top: -100px;
+    margin-bottom: 50px;
     padding: 0px 20px 20px 20px;
     display: flex;
     justify-content: space-around;
@@ -49,12 +49,12 @@ label {
     background-color: white;
     border-radius: 10px;
     padding: 0 10px 10px 10px;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 10px 10px 40px rgb(0 0 0 / 20%);
     margin-bottom: 20px;
 }
 
 .inputBoxAdress {
-    background-color: white;
+    background: #fff;
     border-radius: 10px;
     color: black;
     padding: 1px 0px 10px 10px;
@@ -75,20 +75,6 @@ label {
     border-color: grey;
 }
 
-.buttonSave {
-	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	background-color:#ffffff;
-	border-radius:18px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-size:20px;
-	padding:7px 25px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-}
-.buttonSave:hover {
-	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-	background-color:#f6f6f6;
+.formButton {
+    margin-bottom: 20px;
 }

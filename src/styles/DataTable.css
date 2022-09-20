@@ -1,5 +1,5 @@
 .dataTableBox {
-    width: 80vw;
+    width: 85vw;
 }
 
 .numberSearch {
@@ -8,10 +8,10 @@
 }
 
 .containerList {
+    height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .numberPages, .searchBox {

@@ -1,0 +1,14 @@
+footer {
+    width: 95vw;
+    height: 10vh;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerP, .footerP2 {
+    color: #343a40;
+    font-weight: 500;
+}

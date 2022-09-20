@@ -23,6 +23,7 @@
 .mdp-input input:focus{
     outline: none;
 }
+
 .mdp-input input{
     width: 130%;
     background: #f5f5f5;

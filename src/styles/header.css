@@ -1,19 +1,24 @@
-
 .header {
+    width: 98vw;
     height: 15vh;
+    margin: auto;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo-image {
+    height: 15vh;
 }
 
 .titleH1 {
     align-self: center;
-    font-size: 3rem;
+    font-size: 4rem;
     color: #343a40;
+    text-align: center;
 }
 
 .navigation {
     align-self: center;
-    margin-bottom: 20px;
 }
 
 .linkCurrent {

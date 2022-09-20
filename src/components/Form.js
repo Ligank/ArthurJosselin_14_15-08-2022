@@ -73,7 +73,7 @@ function Form() {
                     <DropdownMenu data={departments} name='department' id='department'/>
                 </div>
             </form>
-            <button onClick={handleClick}>Confirm</button>
+            <button className="formButton" onClick={handleClick}>Save</button>
             <Modal modalText="Employee Created !" show={isShown} closeAction={() => navigate("/currentEmployees")}></Modal>                   
             </div>
         </div>

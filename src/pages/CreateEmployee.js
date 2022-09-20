@@ -1,12 +1,13 @@
 import Header from '../components/header.js'
 import Form from '../components/Form.js'
-import '../styles/CreateEmployee.css';
+import Footer from '../components/Footer.js'
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header link='/currentEmployees' linkText='View Current Employees'/>
       <Form/>
+      <Footer/>
     </div>
   );
 }
