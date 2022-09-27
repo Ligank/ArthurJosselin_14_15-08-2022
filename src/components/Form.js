@@ -19,6 +19,7 @@ function Form() {
         setIsShown(false)
       }, [isShown]) 
     
+      //check if all input are filled in and if it's the case, get all infos in redux and change page
       function handleClick() {
         if (document.querySelector("#first-name").value !== '' && document.querySelector("#last-name").value !== '' && document.querySelector("#street").value !== '' && document.querySelector("#city").value !== '' && document.querySelector("#zip-code").value !== '' && document.querySelectorAll('#state').value !== '' && document.querySelectorAll('#department').value !== '') {
             dispatch(createUser())

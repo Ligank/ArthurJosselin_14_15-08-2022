@@ -13,7 +13,7 @@ function DatePicker({id}) {
     const [month,setMonth] = useState(date.getMonth());
     const [selectedDay,setSelectedDay] = useState(todayTimestamp);
     
-
+    //remove the calendar when you click out of it
     useEffect(() => {
         window.addEventListener("click", function (event) {
             let ignore = inputRef.current;
@@ -32,6 +32,7 @@ function DatePicker({id}) {
     let daysMap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let monthMap = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     
+    //get all infos about current day
     const getDayDetails = (args) => {
         let date = args.index - args.firstDay; 
         let day = args.index%7;
@@ -54,10 +55,12 @@ function DatePicker({id}) {
         }
     }
 
+    //number of day in the current month, 31,30,29 or 28
     const getNumberOfDays =(year, month)=> {
         return 40 - new Date(year, month, 40).getDate();
     }
 
+    //get all infos about current month
     const getMonthDetails =(year, month)=> {
         let firstDay = (new Date(year, month)).getDay();
         let numberOfDays = getNumberOfDays(year, month);
@@ -133,18 +136,23 @@ function DatePicker({id}) {
         inputRef.current.value = dateString;
     }
 
-
     const onDateClick = (day) => {
         setSelectedDay(day.timestamp)
         setDateToInput(day.timestamp)
     }
 
+    /** get the next or previous year and the new month
+     * @param {number} offset 1 or -1
+     */
     const changeYear = (offset) => {
         setYear(year + offset)
         setMonth(month)
         setmonthDetails(getMonthDetails(year, month))
     }
 
+    /** get the next or previous month or/and year
+     * @param {number} offset 1 or -1
+     */
     const changeMonth = (offset) => {
         let newYear = year;
         let newMonth = month + offset;
@@ -164,11 +172,6 @@ function DatePicker({id}) {
         }
         setmonthDetails(getMonthDetails(year, month + offset))
     }
-
-    function test() {
-        showingDatePicker(true)
-    }
-
 
     function renderCalendar() {
         let days = monthDetails.map((day, index)=> {
@@ -197,7 +200,7 @@ function DatePicker({id}) {
     }
 
     return <div className='DatePicker'>
-        <div className='mdp-input'  onClick={test}>
+        <div className='mdp-input'  onClick={() => showingDatePicker(true)}>
                     <input type='date' id={id} onChange={updateDateFromInput} ref={inputRef}/>
                 </div>
                 {showDatePicker && <div className='mdp-container' id="dateContainer">
